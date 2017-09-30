@@ -53,5 +53,4 @@ public class MyStackTest {
         assertEquals(0, stack.size());
     }
 
-
 }

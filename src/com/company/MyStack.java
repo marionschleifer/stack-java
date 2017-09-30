@@ -1,31 +1,41 @@
 package com.company;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MyStack<T> {
-    ArrayList<T> list = new ArrayList<T>();
+    T[] list = (T[]) new Object[5];
+    int beginning = 0;
+    int size = 0;
 
     public void push(T element) {
-        list.add(element);
+        list[beginning] = element;
+        beginning += 1;
+        size += 1;
     }
 
     public int size() {
-        return list.size();
+        return size;
     }
 
     public T peek() {
-        return list.get(size() - 1);
+        return list[size - 1];
     }
 
     public T pop() {
-        return list.remove(size() - 1);
+        T element = list[size - 1];
+        list[size - 1] = null;
+        size--;
+        return element;
     }
 
     public Boolean isEmpty() {
-        return list.size() == 0;
+        return size == 0;
     }
 
     public void clear() {
-        list.clear();
+        for(int i = 0; i < size - 1; i++) {
+            list[i] = null;
+        }
     }
 }
