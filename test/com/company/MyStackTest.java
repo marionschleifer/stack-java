@@ -19,8 +19,12 @@ public class MyStackTest {
     public void push() {
         stack.push(1);
         assertEquals(1, stack.size());
-        stack.push(4);
+        stack.push(2);
         assertEquals(2, stack.size());
+        stack.push(3);
+        stack.push(4);
+        stack.push(5);
+        stack.push(6);
     }
 
     @Test

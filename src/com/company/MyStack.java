@@ -5,12 +5,11 @@ import java.util.ArrayList;
 
 public class MyStack<T> {
     T[] list = (T[]) new Object[5];
-    int beginning = 0;
     int size = 0;
 
     public void push(T element) {
-        list[beginning] = element;
-        beginning += 1;
+        checkArrayLength();
+        list[size] = element;
         size += 1;
     }
 
@@ -36,6 +35,16 @@ public class MyStack<T> {
     public void clear() {
         for(int i = 0; i < size - 1; i++) {
             list[i] = null;
+        }
+    }
+
+    private void checkArrayLength() {
+        if(size + 1 > list.length) {
+            T[] newList = (T[]) new Object[10];
+            for(int i = 0; i > list.length; i++) {
+                newList[i] = list[i];
+            }
+            list = newList;
         }
     }
 }
