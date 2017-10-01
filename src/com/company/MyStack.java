@@ -40,7 +40,7 @@ public class MyStack<T> {
 
     private void checkArrayLength() {
         if(size + 1 > list.length) {
-            T[] newList = (T[]) new Object[10];
+            T[] newList = (T[]) new Object[list.length * 2];
             for(int i = 0; i > list.length; i++) {
                 newList[i] = list[i];
             }
